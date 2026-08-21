@@ -1,11 +1,9 @@
 /* =========================================================
    BIWC GLOBAL STYLES
-   Extracted from the original BIWC website styling.
-   Shared by all pages, header and footer.
+   Shared by all pages, header and footer
    ========================================================= */
 
 :root {
-  /* Original Avada global palette */
   --white: #ffffff;
   --cream: #faf9f7;
   --beige: #e7e2d9;
@@ -16,6 +14,10 @@
   --ink: #1d1816;
 
   --max-width: 1200px;
+
+  /* Shared typography */
+  --font-body: "Source Sans 3", Arial, sans-serif;
+  --font-heading: "Cormorant Garamond", Georgia, serif;
 }
 
 *,
@@ -32,38 +34,49 @@ body {
   margin: 0;
   background: var(--white);
   color: var(--ink);
-  font-family: "Source Sans 3", sans-serif;
+
+  font-family: var(--font-body);
   font-size: 17px;
   font-weight: 500;
   line-height: 1.7;
 }
 
-img {
-  display: block;
-  max-width: 100%;
+
+/* =========================================================
+   GLOBAL TYPOGRAPHY
+   ========================================================= */
+
+p,
+li,
+a,
+button,
+input,
+textarea,
+select,
+label {
+  font-family: var(--font-body);
 }
 
-a {
-  color: inherit;
+p {
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.7;
 }
 
-/* Shared content width used throughout the original layout */
-.container {
-  width: min(var(--max-width), calc(100% - 48px));
-  margin-inline: auto;
-}
-
-/* Original BIWC heading typography */
 h1,
 h2,
 h3,
-h4 {
+h4,
+h5,
+h6 {
   margin-top: 0;
-  font-family: "Cormorant Garamond", serif;
+
+  font-family: var(--font-heading);
   font-style: normal;
   font-weight: 500;
   letter-spacing: -1px;
   line-height: 1.2;
+
   color: var(--red);
 }
 
@@ -83,24 +96,49 @@ h4 {
   font-size: 26px;
 }
 
-/* Standard paragraph/body styling */
-p {
-  font-family: "Source Sans 3", sans-serif;
-  font-size: 17px;
-  font-weight: 500;
-  line-height: 1.7;
+h5 {
+  font-size: 24px;
 }
 
-/* The original site also uses 20px text for prominent intro copy. */
+h6 {
+  font-size: 20px;
+}
+
+
+/* Prominent introductory text */
+
 .text-large,
 .intro-text {
-  font-family: "Source Sans 3", sans-serif;
+  font-family: var(--font-body);
   font-size: 20px;
   font-weight: 500;
   line-height: 1.5;
 }
 
-/* Utility colors matching the original Avada palette */
+
+/* =========================================================
+   GENERAL ELEMENTS
+   ========================================================= */
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+.container {
+  width: min(var(--max-width), calc(100% - 48px));
+  margin-inline: auto;
+}
+
+
+/* =========================================================
+   UTILITY COLORS
+   ========================================================= */
+
 .text-red {
   color: var(--red);
 }
@@ -121,9 +159,11 @@ p {
   background: var(--red);
 }
 
-/* Responsive content width only.
-   Page-specific responsive typography should remain page-specific
-   unless the original BIWC design explicitly changes it. */
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
 @media (max-width: 620px) {
   .container {
     width: min(100% - 32px, var(--max-width));
