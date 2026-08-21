@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="BIWC Open Events: Monthly Meeting and Meet & Greet.">
+  <title>Open Events | Berlin International Women's Club</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/BIWC/css/global.css">
+  <link rel="stylesheet" href="/BIWC/css/header.css">
+  <link rel="stylesheet" href="/BIWC/css/footer.css">
+
+  <style>
+    /* Open Events page only */
+
+    .open-events-title {
+      padding: 30px 0 20px;
+      text-align: center;
+    }
+
+    .open-events-title h1 {
+      margin-bottom: 0;
+    }
+
+    .open-events-intro {
+      padding: 0 15% 90px;
+      text-align: center;
+    }
+
+    .open-events-intro p {
+      margin: 0 0 16px;
+      font-size: 20px;
+      line-height: 1.5;
+    }
+
+    .open-events-intro a {
+      text-decoration: none;
+    }
+
+    .event-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      width: 100%;
+    }
+
+    .event-copy {
+      display: flex;
+      align-items: center;
+      padding: 15%;
+    }
+
+    .event-copy.monthly {
+      background: var(--cream);
+    }
+
+    .event-copy.meet {
+      background: var(--white);
+    }
+
+    .event-copy h2 {
+      margin-bottom: 18px;
+    }
+
+    .event-copy p {
+      margin: 0 0 16px;
+    }
+
+    .event-image {
+      min-height: 500px;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .monthly-image {
+      background-image: url("https://biwc.de/wp-content/uploads/2026/05/Canva-AI-for-Monthly-Meeting.png");
+    }
+
+    .meet-image {
+      background-image: url("https://biwc.de/wp-content/uploads/2026/05/Canva-AI-for-Meet-and-Greet.png");
+    }
+
+    @media (max-width: 900px) {
+      .open-events-intro {
+        padding-left: 8%;
+        padding-right: 8%;
+        padding-bottom: 60px;
+      }
+
+      .event-row {
+        grid-template-columns: 1fr;
+      }
+
+      .event-copy {
+        padding: 12%;
+      }
+
+      .event-image {
+        min-height: 480px;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .open-events-intro {
+        padding: 0 24px 44px;
+      }
+
+      .event-copy {
+        padding: 48px 30px;
+      }
+
+      .event-image {
+        min-height: 360px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="site-header"></div>
+
+  <main>
+    <section class="open-events-title">
+      <div class="container">
+        <h1>Open Events</h1>
+      </div>
+    </section>
+
+    <section class="open-events-intro">
+      <p>
+        We hold two open events every month: the Monthly Meeting and the Meet &amp; Greet.
+        This is the best way to meet new people, and to see if the BIWC is a good fit.
+        These events are open to all women, there is no need to register, just show up!
+        We watch out for new faces, and really look forward to meeting you.
+      </p>
+
+      <p>
+        Take a look at the
+        <a href="/BIWC/activities/">ACTIVITIES</a>
+        page for a complete view of all activities we offer our members.
+      </p>
+    </section>
+
+    <section class="event-row">
+      <div class="event-copy monthly">
+        <div>
+          <h2>Monthly Meeting</h2>
+
+          <p>
+            Join us the first Tuesday evening of every month at a restaurant for a no-host dinner.
+            Sometimes a speaker presents a topic of interest; sometimes we play a trivia game just for fun.
+            We always enjoy seeing new faces, whether you’ve been in Berlin for ages, are brand new to the city.
+            This is a wonderful way to get to know our club, our community of women.
+          </p>
+
+          <p><strong>When</strong>: Tuesday, August 4, 6pm</p>
+
+          <p>
+            <strong>Where</strong>: Restaurant Monte Mente in
+            <strong><em>The Center</em></strong> (previously Sony Center),
+            Potsdamer Platz, Bellevuestraße 5, 10785 Berlin
+          </p>
+        </div>
+      </div>
+
+      <div class="event-image monthly-image" role="img" aria-label="Monthly Meeting"></div>
+    </section>
+
+    <section class="event-row">
+      <div class="event-image meet-image" role="img" aria-label="Meet and Greet"></div>
+
+      <div class="event-copy meet">
+        <div>
+          <h2>Meet and Greet</h2>
+
+          <p>
+            Pop in and join us for coffee at Kaffeehaus Mila at 10:30am on the 22nd of every month.
+          </p>
+
+          <p>
+            Bring your baby or your knitting if you want, it’s all about connecting.
+            We chat over a cappuccino or a mint tea, maybe a chocolate croissant or a feta salad.
+            For sure, we just appreciate coming together, pausing before attacking the must-do’s of the day.
+            Many of our new members first experience our club through a Meet and Greet.
+          </p>
+
+          <p><strong>When</strong>: The 22nd of every month, 10:30am</p>
+
+          <p>
+            <strong>Where</strong>: Kaffeehaus Mila, Grolmanstraße 40, 10623 Berlin
+            <em>SBahn Savignyplatz, UBahn Uhlandstraße</em>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="/BIWC/js/components.js"></script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+/* =========================================================
+   BIWC GLOBAL STYLES
+   Extracted from the original BIWC website styling.
+   Shared by all pages, header and footer.
+   ========================================================= */
+
+:root {
+  /* Original Avada global palette */
+  --white: #ffffff;
+  --cream: #faf9f7;
+  --beige: #e7e2d9;
+  --pink: #f4d9e2;
+  --red: #a51d20;
+  --taupe: #544e4c;
+  --brown: #352e2b;
+  --ink: #1d1816;
+
+  --max-width: 1200px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--white);
+  color: var(--ink);
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.7;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+/* Shared content width used throughout the original layout */
+.container {
+  width: min(var(--max-width), calc(100% - 48px));
+  margin-inline: auto;
+}
+
+/* Original BIWC heading typography */
+h1,
+h2,
+h3,
+h4 {
+  margin-top: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: -1px;
+  line-height: 1.2;
+  color: var(--red);
+}
+
+h1 {
+  font-size: 43px;
+}
+
+h2 {
+  font-size: 43px;
+}
+
+h3 {
+  font-size: 26px;
+}
+
+h4 {
+  font-size: 26px;
+}
+
+/* Standard paragraph/body styling */
+p {
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.7;
+}
+
+/* The original site also uses 20px text for prominent intro copy. */
+.text-large,
+.intro-text {
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* Utility colors matching the original Avada palette */
+.text-red {
+  color: var(--red);
+}
+
+.text-ink {
+  color: var(--ink);
+}
+
+.bg-white {
+  background: var(--white);
+}
+
+.bg-cream {
+  background: var(--cream);
+}
+
+.bg-red {
+  background: var(--red);
+}
+
+/* Responsive content width only.
+   Page-specific responsive typography should remain page-specific
+   unless the original BIWC design explicitly changes it. */
+@media (max-width: 620px) {
+  .container {
+    width: min(100% - 32px, var(--max-width));
+  }
+}
