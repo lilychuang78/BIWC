@@ -1,5 +1,5 @@
 const isRootPage = window.location.pathname.replace(/\/+$/, '').split('/').filter(Boolean).length <= 1;
-const componentBase = isRootPage ? 'components/' : '../components/';
+const componentBase = new URL('../components/', document.currentScript.src).href;
 
 async function loadComponent(id, path) {
   const response = await fetch(path);

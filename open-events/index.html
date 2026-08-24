@@ -28,7 +28,7 @@
     }
 
     .open-events-intro {
-      padding: 0 15% 90px;
+      padding: 0 15% 40px;
       text-align: center;
     }
 
@@ -46,12 +46,14 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       width: 100%;
+      align-items: center;
     }
 
     .event-copy {
       display: flex;
       align-items: center;
-      padding: 15%;
+      padding: 10%;
+      height: 380px;
     }
 
     .event-copy.monthly {
@@ -63,15 +65,17 @@
     }
 
     .event-copy h2 {
-      margin-bottom: 18px;
+      margin-bottom: 12px;
+      font-size: 24px;
     }
 
     .event-copy p {
-      margin: 0 0 16px;
+      margin: 0 0 10px;
+      font-size: 15px;
     }
 
     .event-image {
-      min-height: 500px;
+      height: 380px;
       background-position: center center;
       background-repeat: no-repeat;
       background-size: cover;
@@ -96,12 +100,17 @@
         grid-template-columns: 1fr;
       }
 
+      .event-row + .event-row {
+        margin-top: 24px;
+      }
+
       .event-copy {
         padding: 12%;
       }
 
       .event-image {
-        min-height: 480px;
+        height: 280px;
+        background-position: center 25%;
       }
     }
 
@@ -115,7 +124,8 @@
       }
 
       .event-image {
-        min-height: 360px;
+        height: 240px;
+        background-position: center 25%;
       }
     }
   </style>
@@ -141,7 +151,7 @@
 
       <p>
         Take a look at the
-        <a href="/BIWC/activities/">ACTIVITIES</a>
+        <a href="https://lilychuang78.github.io/BIWC/activties/">ACTIVITIES</a>
         page for a complete view of all activities we offer our members.
       </p>
     </section>
@@ -173,7 +183,6 @@
 
     <section class="event-row">
       <div class="event-image meet-image" role="img" aria-label="Meet and Greet"></div>
-
       <div class="event-copy meet">
         <div>
           <h2>Meet and Greet</h2>
