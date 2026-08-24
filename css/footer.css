@@ -60,3 +60,16 @@ footer {
     text-align: center;
   }
 }
+
+@media (max-width: 620px) {
+  .footer-links {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .footer-social {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+}

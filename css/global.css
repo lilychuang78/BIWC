@@ -81,19 +81,19 @@ h6 {
 }
 
 h1 {
-  font-size: 43px;
+  font-size: clamp(2.3rem, 3vw, 2.7rem);
 }
 
 h2 {
-  font-size: 43px;
+  font-size: clamp(2.2rem, 3vw, 2.7rem);
 }
 
 h3 {
-  font-size: 26px;
+  font-size: clamp(1.7rem, 2.2vw, 1.8rem);
 }
 
 h4 {
-  font-size: 26px;
+  font-size: clamp(1.7rem, 2.2vw, 1.8rem);
 }
 
 h5 {
@@ -159,13 +159,72 @@ a {
   background: var(--red);
 }
 
+/* =========================================================
+   LEADERSHIP
+   ========================================================= */
 
+.leaders-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 48px 36px;
+  justify-content: center;
+}
+
+.leader {
+  text-align: center;
+}
+
+.leader-image {
+  display: block;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 20px;
+  object-fit: cover;
+  object-position: center center;
+  border-radius: 0;
+}
 /* =========================================================
    RESPONSIVE
    ========================================================= */
 
+@media (max-width: 900px) {
+  .leaders-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .leader-image {
+    width: 140px;
+    height: 140px;
+  }
+
+  .leader:last-child:nth-child(odd) {
+    grid-column: auto;
+  }
+}
+
 @media (max-width: 620px) {
   .container {
     width: min(100% - 32px, var(--max-width));
+  }
+
+  .leaders-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .leader:last-child:nth-child(odd) {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .text-large,
+  .intro-text {
+    font-size: 18px;
+  }
+
+  h1,
+  h2 {
+    letter-spacing: -0.6px;
   }
 }
