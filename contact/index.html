@@ -182,10 +182,34 @@
 
 	<script src="../js/components.js"></script>
 	<script>
-		document.getElementById('contact-form').addEventListener('submit', (event) => {
-			event.preventDefault();
-			document.getElementById('contact-status').hidden = false;
-		});
+	document.getElementById('contact-form').addEventListener('submit', (event) => {
+		event.preventDefault();
+
+		const form = event.currentTarget;
+		const data = new FormData(form);
+
+		const name = data.get('name') || '';
+		const email = data.get('email') || '';
+		const topic = data.get('topic') || 'General enquiry';
+		const message = data.get('message') || '';
+
+		const subject = `Website contact form: ${topic}`;
+		const body = [
+			`Name: ${name}`,
+			`Email: ${email}`,
+			`Topic: ${topic}`,
+			'',
+			'Message:',
+			message
+		].join('\n');
+
+		const mailtoUrl =
+			`mailto:membership@biwc.de` +
+			`?subject=${encodeURIComponent(subject)}` +
+			`&body=${encodeURIComponent(body)}`;
+
+		window.location.href = mailtoUrl;
+	});
 	</script>
 </body>
 </html>
