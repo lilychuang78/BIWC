@@ -42,12 +42,60 @@
 			background: var(--cream);
 		}
 
-		.activity-image:nth-child(4) {
+		.activity-lightbox-link {
+			display: block;
+			grid-column: span 2;
+			cursor: zoom-in;
+		}
+
+		.activity-lightbox-link .activity-image {
+			grid-column: auto;
+		}
+
+		.activity-lightbox-link:nth-child(4) {
 			grid-column: 2 / span 2;
 		}
 
-		.activity-image:nth-child(5) {
+		.activity-lightbox-link:nth-child(5) {
 			grid-column: 4 / span 2;
+		}
+
+		.activity-lightbox {
+			position: fixed;
+			inset: 0;
+			z-index: 10;
+			display: grid;
+			place-items: center;
+			padding: 24px;
+			background: rgba(29, 24, 22, .88);
+		}
+
+		.activity-lightbox[hidden] {
+			display: none;
+		}
+
+		.activity-lightbox-image {
+			max-width: min(100%, 1200px);
+			max-height: calc(100vh - 48px);
+			width: auto;
+			height: auto;
+			object-fit: contain;
+			background: var(--white);
+		}
+
+		.activity-lightbox-close {
+			position: absolute;
+			top: 16px;
+			right: 20px;
+			width: 44px;
+			height: 44px;
+			border: 1px solid rgba(255, 255, 255, .7);
+			border-radius: 50%;
+			background: transparent;
+			color: var(--white);
+			font-size: 30px;
+			line-height: 1;
+			cursor: pointer;
 		}
 
 		@media (max-width: 620px) {
@@ -60,10 +108,18 @@
 				gap: 16px;
 			}
 
-			.activity-image,
-			.activity-image:nth-child(4),
-			.activity-image:nth-child(5) {
+			.activity-lightbox-link,
+			.activity-lightbox-link:nth-child(4),
+			.activity-lightbox-link:nth-child(5) {
 				grid-column: auto;
+			}
+
+			.activity-lightbox {
+				padding: 16px;
+			}
+
+			.activity-lightbox-image {
+				max-height: calc(100vh - 32px);
 			}
 		}
 	</style>
@@ -80,18 +136,66 @@
 				</div>
 
 				<div class="activities-gallery">
-					<img class="activity-image" src="../images/activity1.png" alt="Activities calendar, first view">
-					<img class="activity-image" src="../images/activity2.png" alt="Activities calendar, second view">
-					<img class="activity-image" src="../images/activity3.png" alt="Activities calendar, third view">
-					<img class="activity-image" src="../images/activity4.png" alt="Activities calendar, fourth view">
-					<img class="activity-image" src="../images/activity5.png" alt="Activities calendar, fifth view">
+					<a class="activity-lightbox-link" href="../images/activity1.png" data-lightbox-image="../images/activity1.png" data-lightbox-alt="Activities calendar, first view">
+						<img class="activity-image" src="../images/activity1.png" alt="Activities calendar, first view">
+					</a>
+					<a class="activity-lightbox-link" href="../images/activity2.png" data-lightbox-image="../images/activity2.png" data-lightbox-alt="Activities calendar, second view">
+						<img class="activity-image" src="../images/activity2.png" alt="Activities calendar, second view">
+					</a>
+					<a class="activity-lightbox-link" href="../images/activity3.png" data-lightbox-image="../images/activity3.png" data-lightbox-alt="Activities calendar, third view">
+						<img class="activity-image" src="../images/activity3.png" alt="Activities calendar, third view">
+					</a>
+					<a class="activity-lightbox-link" href="../images/activity4.png" data-lightbox-image="../images/activity4.png" data-lightbox-alt="Activities calendar, fourth view">
+						<img class="activity-image" src="../images/activity4.png" alt="Activities calendar, fourth view">
+					</a>
+					<a class="activity-lightbox-link" href="../images/activity5.png" data-lightbox-image="../images/activity5.png" data-lightbox-alt="Activities calendar, fifth view">
+						<img class="activity-image" src="../images/activity5.png" alt="Activities calendar, fifth view">
+					</a>
 				</div>
 			</div>
 		</section>
 	</main>
 
+	<div class="activity-lightbox" id="activity-lightbox" role="dialog" aria-modal="true" aria-label="Expanded activity image" hidden>
+		<button class="activity-lightbox-close" type="button" aria-label="Close expanded image">&times;</button>
+		<img class="activity-lightbox-image" src="" alt="">
+	</div>
+
 	<div id="site-footer"></div>
 
 	<script src="../js/components.js"></script>
+	<script>
+		const lightbox = document.getElementById('activity-lightbox');
+		const lightboxImage = lightbox.querySelector('.activity-lightbox-image');
+		const lightboxClose = lightbox.querySelector('.activity-lightbox-close');
+
+		function closeLightbox() {
+			lightbox.hidden = true;
+			document.body.style.overflow = '';
+		}
+
+		document.querySelectorAll('[data-lightbox-image]').forEach((link) => {
+			link.addEventListener('click', (event) => {
+				event.preventDefault();
+				lightboxImage.src = link.dataset.lightboxImage;
+				lightboxImage.alt = link.dataset.lightboxAlt;
+				lightbox.hidden = false;
+				document.body.style.overflow = 'hidden';
+				lightboxClose.focus();
+			});
+		});
+
+		lightboxClose.addEventListener('click', closeLightbox);
+		lightbox.addEventListener('click', (event) => {
+			if (event.target === lightbox) {
+				closeLightbox();
+			}
+		});
+		document.addEventListener('keydown', (event) => {
+			if (event.key === 'Escape' && !lightbox.hidden) {
+				closeLightbox();
+			}
+		});
+	</script>
 </body>
 </html>
