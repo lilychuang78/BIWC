@@ -114,11 +114,15 @@
 
 @media (max-width: 900px) {
   .top-header-grid {
-    grid-template-columns: 1fr;
+    width: 100%;
+    min-width: 0;
+    flex-direction: column;
     text-align: center;
   }
 
   .brand-cluster {
+    width: 100%;
+    min-width: 0;
     justify-content: center;
     flex-wrap: wrap;
   }
@@ -130,9 +134,13 @@
   .tagline {
     text-align: center;
     max-width: none;
+    white-space: normal;
+    overflow-wrap: anywhere;
   }
 
   .nav-inner {
+    width: 100%;
+    min-width: 0;
     align-items: flex-start;
     flex-direction: column;
     padding: 16px 0;
@@ -150,7 +158,11 @@
   }
 
   .nav-links {
+    width: 100%;
+    min-width: 0;
     gap: 14px 20px;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 
   .nav-actions {

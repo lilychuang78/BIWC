@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="BIWC activities and events for members.">
+	<title>Activities | Berlin International Women's Club</title>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="../css/global.css">
+	<link rel="stylesheet" href="../css/header.css">
+	<link rel="stylesheet" href="../css/footer.css">
+
+	<style>
+		.activities-page {
+			padding: 40px 0 64px;
+		}
+
+		.activities-heading {
+			margin-bottom: 28px;
+			text-align: center;
+		}
+
+		.activities-heading h1 {
+			margin-bottom: 0;
+		}
+
+		.activities-gallery {
+			display: grid;
+			grid-template-columns: repeat(6, minmax(0, 1fr));
+			gap: 24px;
+		}
+
+		.activity-image {
+			width: 100%;
+			height: auto;
+			grid-column: span 2;
+			border: 1px solid var(--beige);
+			background: var(--cream);
+		}
+
+		.activity-image:nth-child(4) {
+			grid-column: 2 / span 2;
+		}
+
+		.activity-image:nth-child(5) {
+			grid-column: 4 / span 2;
+		}
+
+		@media (max-width: 620px) {
+			.activities-page {
+				padding: 32px 0 48px;
+			}
+
+			.activities-gallery {
+				grid-template-columns: 1fr;
+				gap: 16px;
+			}
+
+			.activity-image,
+			.activity-image:nth-child(4),
+			.activity-image:nth-child(5) {
+				grid-column: auto;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div id="site-header"></div>
+
+	<main>
+		<section class="activities-page">
+			<div class="container">
+				<div class="activities-heading">
+					<h1>Activities</h1>
+				</div>
+
+				<div class="activities-gallery">
+					<img class="activity-image" src="../images/activity1.png" alt="Activities calendar, first view">
+					<img class="activity-image" src="../images/activity2.png" alt="Activities calendar, second view">
+					<img class="activity-image" src="../images/activity3.png" alt="Activities calendar, third view">
+					<img class="activity-image" src="../images/activity4.png" alt="Activities calendar, fourth view">
+					<img class="activity-image" src="../images/activity5.png" alt="Activities calendar, fifth view">
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<div id="site-footer"></div>
+
+	<script src="../js/components.js"></script>
+</body>
+</html>

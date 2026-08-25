@@ -1,5 +1,7 @@
-const isRootPage = window.location.pathname.replace(/\/+$/, '').split('/').filter(Boolean).length <= 1;
 const componentBase = new URL('../components/', document.currentScript.src).href;
+const siteRootPath = new URL('../', document.currentScript.src).pathname.replace(/index\.html$/, '').replace(/\/?$/, '/');
+const currentPagePath = window.location.pathname.replace(/index\.html$/, '').replace(/\/?$/, '/');
+const isRootPage = currentPagePath === siteRootPath;
 
 async function loadComponent(id, path) {
   const response = await fetch(path);
@@ -16,6 +18,17 @@ async function loadComponent(id, path) {
     if (homeLink) {
       homeLink.setAttribute('href', isRootPage ? './' : '../');
     }
+
+    const pagePaths = {
+      about: isRootPage ? './' : '../',
+      'open-events': isRootPage ? './open-events/' : '../open-events/',
+      activities: isRootPage ? './activities/' : '../activities/',
+      'join-us': isRootPage ? './join-us/' : '../join-us/'
+    };
+
+    document.querySelectorAll('[data-page-link]').forEach((link) => {
+      link.setAttribute('href', pagePaths[link.dataset.pageLink]);
+    });
   }
 }
 
