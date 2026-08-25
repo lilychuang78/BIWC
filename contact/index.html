@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Contact the Berlin International Women's Club.">
+	<title>Contact | Berlin International Women's Club</title>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="../css/global.css">
+	<link rel="stylesheet" href="../css/header.css">
+	<link rel="stylesheet" href="../css/footer.css">
+
+	<style>
+		.contact-page {
+			padding: 44px 0 72px;
+		}
+
+		.contact-content {
+			width: min(100%, 860px);
+			margin: 0 auto;
+		}
+
+		.contact-heading {
+			margin-bottom: 34px;
+			text-align: center;
+		}
+
+		.contact-heading h1 {
+			margin-bottom: 10px;
+		}
+
+		.contact-heading p {
+			max-width: 620px;
+			margin: 0 auto;
+			color: rgba(29, 24, 22, .72);
+		}
+
+		.contact-form {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 22px 24px;
+			padding: 34px;
+			border: 1px solid var(--beige);
+			background: var(--cream);
+		}
+
+		.contact-field {
+			display: flex;
+			flex-direction: column;
+			gap: 7px;
+		}
+
+		.contact-field-wide {
+			grid-column: 1 / -1;
+		}
+
+		.contact-field label {
+			color: var(--brown);
+			font-weight: 600;
+		}
+
+		.contact-field input,
+		.contact-field select,
+		.contact-field textarea {
+			width: 100%;
+			border: 1px solid #cfc6bd;
+			border-radius: 0;
+			padding: 12px 14px;
+			background: var(--white);
+			color: var(--ink);
+			font: inherit;
+		}
+
+		.contact-field input:focus,
+		.contact-field select:focus,
+		.contact-field textarea:focus {
+			outline: 2px solid var(--red);
+			outline-offset: 2px;
+		}
+
+		.contact-field textarea {
+			min-height: 170px;
+			resize: vertical;
+		}
+
+		.contact-submit {
+			grid-column: 1 / -1;
+			justify-self: center;
+			border: 0;
+			border-radius: 999px;
+			padding: 12px 24px;
+			background: var(--red);
+			color: var(--white);
+			font: inherit;
+			font-weight: 600;
+			cursor: pointer;
+		}
+
+		.contact-submit:hover,
+		.contact-submit:focus-visible {
+			background: var(--brown);
+		}
+
+		.contact-status {
+			grid-column: 1 / -1;
+			margin: 0;
+			color: var(--red);
+			text-align: center;
+		}
+
+		@media (max-width: 620px) {
+			.contact-page {
+				padding: 32px 0 48px;
+			}
+
+			.contact-form {
+				grid-template-columns: 1fr;
+				padding: 24px;
+			}
+
+			.contact-field-wide,
+			.contact-submit,
+			.contact-status {
+				grid-column: auto;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div id="site-header"></div>
+
+	<main>
+		<section class="contact-page">
+			<div class="container">
+				<div class="contact-content">
+					<div class="contact-heading">
+						<h1>Contact</h1>
+						<p>We would love to hear from you. Send us a message and we will get back to you.</p>
+					</div>
+
+					<form class="contact-form" id="contact-form">
+						<div class="contact-field">
+							<label for="contact-name">Your Name <span aria-hidden="true">*</span></label>
+							<input id="contact-name" name="name" type="text" placeholder="Name*" autocomplete="name" required>
+						</div>
+
+						<div class="contact-field">
+							<label for="contact-email">Email Address <span aria-hidden="true">*</span></label>
+							<input id="contact-email" name="email" type="email" placeholder="Email*" autocomplete="email" required>
+						</div>
+
+						<div class="contact-field contact-field-wide">
+							<label for="contact-topic">I’d like more info on:</label>
+							<select id="contact-topic" name="topic">
+								<option value="">Please choose an option</option>
+								<option>I'm curious about an upcoming event</option>
+								<option>I have a proposal for a project or initiative</option>
+								<option>I've an idea for a presentation for a monthly meeting</option>
+								<option>Other general enquiry</option>
+							</select>
+						</div>
+
+						<div class="contact-field contact-field-wide">
+							<label for="contact-message">Your Message</label>
+							<textarea id="contact-message" name="message" placeholder="Your message"></textarea>
+						</div>
+
+						<button class="contact-submit" type="submit">Let’s Connect</button>
+						<p class="contact-status" id="contact-status" role="status" hidden>Thank you. Your message is ready to be sent.</p>
+					</form>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<div id="site-footer"></div>
+
+	<script src="../js/components.js"></script>
+	<script>
+		document.getElementById('contact-form').addEventListener('submit', (event) => {
+			event.preventDefault();
+			document.getElementById('contact-status').hidden = false;
+		});
+	</script>
+</body>
+</html>
