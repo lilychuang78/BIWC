@@ -29,35 +29,23 @@
 		}
 
 		.activities-gallery {
-			display: grid;
-			grid-template-columns: repeat(6, minmax(0, 1fr));
-			gap: 24px;
+			display: flex;
+			flex-direction: column;
+			gap: 0;
+			width: min(100%, 760px);
+			margin: 0 auto;
 		}
 
 		.activity-image {
+			display: block;
 			width: 100%;
 			height: auto;
-			grid-column: span 2;
-			border: 1px solid var(--beige);
-			background: var(--cream);
 		}
 
 		.activity-lightbox-link {
 			display: block;
-			grid-column: span 2;
+			width: 100%;
 			cursor: zoom-in;
-		}
-
-		.activity-lightbox-link .activity-image {
-			grid-column: auto;
-		}
-
-		.activity-lightbox-link:nth-child(4) {
-			grid-column: 2 / span 2;
-		}
-
-		.activity-lightbox-link:nth-child(5) {
-			grid-column: 4 / span 2;
 		}
 
 		.activity-lightbox {
@@ -103,17 +91,6 @@
 				padding: 32px 0 48px;
 			}
 
-			.activities-gallery {
-				grid-template-columns: 1fr;
-				gap: 16px;
-			}
-
-			.activity-lightbox-link,
-			.activity-lightbox-link:nth-child(4),
-			.activity-lightbox-link:nth-child(5) {
-				grid-column: auto;
-			}
-
 			.activity-lightbox {
 				padding: 16px;
 			}
@@ -136,20 +113,20 @@
 				</div>
 
 				<div class="activities-gallery">
-					<a class="activity-lightbox-link" href="../images/activity1.png" data-lightbox-image="../images/activity1.png" data-lightbox-alt="Activities calendar, first view">
-						<img class="activity-image" src="../images/activity1.png" alt="Activities calendar, first view">
+					<a class="activity-lightbox-link" href="../images/activity_1.png" data-lightbox-image="../images/activity_1.png" data-lightbox-alt="Activities calendar, first view">
+						<img class="activity-image" src="../images/activity_1.png" alt="Activities calendar, first view">
 					</a>
-					<a class="activity-lightbox-link" href="../images/activity2.png" data-lightbox-image="../images/activity2.png" data-lightbox-alt="Activities calendar, second view">
-						<img class="activity-image" src="../images/activity2.png" alt="Activities calendar, second view">
+					<a class="activity-lightbox-link" href="../images/activity_2.png" data-lightbox-image="../images/activity_2.png" data-lightbox-alt="Activities calendar, second view">
+						<img class="activity-image" src="../images/activity_2.png" alt="Activities calendar, second view">
 					</a>
-					<a class="activity-lightbox-link" href="../images/activity3.png" data-lightbox-image="../images/activity3.png" data-lightbox-alt="Activities calendar, third view">
-						<img class="activity-image" src="../images/activity3.png" alt="Activities calendar, third view">
+					<a class="activity-lightbox-link" href="../images/activity_3.png" data-lightbox-image="../images/activity_3.png" data-lightbox-alt="Activities calendar, third view">
+						<img class="activity-image" src="../images/activity_3.png" alt="Activities calendar, third view">
 					</a>
-					<a class="activity-lightbox-link" href="../images/activity4.png" data-lightbox-image="../images/activity4.png" data-lightbox-alt="Activities calendar, fourth view">
-						<img class="activity-image" src="../images/activity4.png" alt="Activities calendar, fourth view">
+					<a class="activity-lightbox-link" href="../images/activity_4.png" data-lightbox-image="../images/activity_4.png" data-lightbox-alt="Activities calendar, fourth view">
+						<img class="activity-image" src="../images/activity_4.png" alt="Activities calendar, fourth view">
 					</a>
-					<a class="activity-lightbox-link" href="../images/activity5.png" data-lightbox-image="../images/activity5.png" data-lightbox-alt="Activities calendar, fifth view">
-						<img class="activity-image" src="../images/activity5.png" alt="Activities calendar, fifth view">
+					<a class="activity-lightbox-link" href="../images/activity_5.png" data-lightbox-image="../images/activity_5.png" data-lightbox-alt="Activities calendar, fifth view">
+						<img class="activity-image" src="../images/activity_5.png" alt="Activities calendar, fifth view">
 					</a>
 				</div>
 			</div>
