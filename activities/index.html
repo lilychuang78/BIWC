@@ -39,13 +39,26 @@
 		.activity-image {
 			display: block;
 			width: 100%;
+			max-width: none;
 			height: auto;
+			box-sizing: border-box;
 		}
 
 		.activity-lightbox-link {
 			display: block;
+			flex: 0 0 auto;
 			width: 100%;
+			overflow: hidden;
+			line-height: 0;
 			cursor: zoom-in;
+		}
+
+		.activity-lightbox-link:nth-child(2) .activity-image {
+			width: calc(100% + 2px);
+		}
+
+		.activity-lightbox-link + .activity-lightbox-link {
+			margin-top: -4px;
 		}
 
 		.activity-lightbox {
