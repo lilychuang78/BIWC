@@ -5,187 +5,47 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="BIWC activities and events for members.">
 	<title>Activities | Berlin International Women's Club</title>
-
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
-
 	<link rel="stylesheet" href="../css/global.css">
 	<link rel="stylesheet" href="../css/header.css">
 	<link rel="stylesheet" href="../css/footer.css">
-
 	<style>
-		.activities-page {
-			padding: 40px 0 64px;
-		}
-
-		.activities-heading {
-			margin-bottom: 28px;
-			text-align: center;
-		}
-
-		.activities-heading h1 {
-			margin-bottom: 0;
-		}
-
-		.activities-gallery {
-			display: flex;
-			flex-direction: column;
-			gap: 0;
-			width: min(100%, 760px);
-			margin: 0 auto;
-		}
-
-		.activity-image {
-			display: block;
-			width: 100%;
-			max-width: none;
-			height: auto;
-			box-sizing: border-box;
-		}
-
-		.activity-lightbox-link {
-			display: block;
-			flex: 0 0 auto;
-			width: 100%;
-			overflow: hidden;
-			line-height: 0;
-			cursor: zoom-in;
-		}
-
-		.activity-lightbox-link:nth-child(2) .activity-image {
-			width: calc(100% + 2px);
-		}
-
-		.activity-lightbox-link + .activity-lightbox-link {
-			margin-top: -4px;
-		}
-
-		.activity-lightbox {
-			position: fixed;
-			inset: 0;
-			z-index: 10;
-			display: grid;
-			place-items: center;
-			padding: 24px;
-			background: rgba(29, 24, 22, .88);
-		}
-
-		.activity-lightbox[hidden] {
-			display: none;
-		}
-
-		.activity-lightbox-image {
-			max-width: min(100%, 1200px);
-			max-height: calc(100vh - 48px);
-			width: auto;
-			height: auto;
-			object-fit: contain;
-			background: var(--white);
-		}
-
-		.activity-lightbox-close {
-			position: absolute;
-			top: 16px;
-			right: 20px;
-			width: 44px;
-			height: 44px;
-			border: 1px solid rgba(255, 255, 255, .7);
-			border-radius: 50%;
-			background: transparent;
-			color: var(--white);
-			font-size: 30px;
-			line-height: 1;
-			cursor: pointer;
-		}
-
-		@media (max-width: 620px) {
-			.activities-page {
-				padding: 32px 0 48px;
-			}
-
-			.activity-lightbox {
-				padding: 16px;
-			}
-
-			.activity-lightbox-image {
-				max-height: calc(100vh - 32px);
-			}
-		}
+		.activities-page{padding:40px 0 64px}.activities-heading{text-align:center;margin-bottom:28px}.activities-heading h1{margin-bottom:8px}.activities-heading p{margin:0;color:rgba(29,24,22,.72)}
+		.calendar{width:min(100%,1080px);margin:auto;border:1px solid var(--beige);background:var(--white)}.calendar-toolbar{display:grid;grid-template-columns:44px 1fr 44px;align-items:center;padding:16px;background:var(--cream)}.calendar-toolbar h2{margin:0;text-align:center;font-size:clamp(1.6rem,4vw,2.2rem)}
+		.calendar-nav{width:40px;height:40px;border:1px solid var(--red);border-radius:50%;background:transparent;color:var(--red);font:inherit;font-size:24px;cursor:pointer}.calendar-nav:hover,.calendar-nav:focus-visible{background:var(--red);color:var(--white)}
+		.calendar-weekdays,.calendar-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr))}.calendar-weekdays{border-block:1px solid var(--beige);background:var(--cream)}.calendar-weekdays span{padding:10px 4px;color:var(--brown);font-weight:600;text-align:center}
+		.calendar-day{min-height:128px;padding:8px;border-right:1px solid var(--beige);border-bottom:1px solid var(--beige)}.calendar-day:nth-child(7n){border-right:0}.calendar-day.is-outside{background:#faf8f5;color:rgba(29,24,22,.4)}.calendar-date{display:block;margin-bottom:5px;font-weight:600}.calendar-day.is-today .calendar-date{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--red);color:white}
+		.calendar-event{display:block;width:100%;margin-bottom:4px;border:0;padding:5px 6px;background:var(--cream);color:var(--brown);font:inherit;font-size:.82rem;line-height:1.2;text-align:left;cursor:pointer}.calendar-event:hover,.calendar-event:focus-visible{background:var(--red);color:white}.calendar-message{grid-column:1/-1;padding:32px;text-align:center}
+		.event-dialog{width:min(calc(100% - 32px),520px);border:0;padding:0;box-shadow:0 18px 60px rgba(29,24,22,.28)}.event-dialog::backdrop{background:rgba(29,24,22,.65)}.event-dialog-content{position:relative;padding:28px}.event-dialog h2{margin:0 40px 12px 0}.event-dialog p{margin:7px 0}.event-dialog-close{position:absolute;top:16px;right:16px;border:0;background:transparent;color:var(--brown);font-size:30px;cursor:pointer}
+		@media(max-width:720px){.activities-page{padding:32px 0 48px}.calendar-weekdays span{font-size:0}.calendar-weekdays span::first-letter{font-size:.9rem}.calendar-day{min-height:82px;padding:4px}.calendar-event{overflow:hidden;padding:4px;font-size:.7rem;text-overflow:ellipsis}.event-time{display:none}}
 	</style>
 </head>
-
 <body>
 	<div id="site-header"></div>
-
-	<main>
-		<section class="activities-page">
-			<div class="container">
-				<div class="activities-heading">
-					<h1>Activities</h1>
-				</div>
-
-				<div class="activities-gallery">
-					<a class="activity-lightbox-link" href="../images/activity_1.png" data-lightbox-image="../images/activity_1.png" data-lightbox-alt="Activities calendar, first view">
-						<img class="activity-image" src="../images/activity_1.png" alt="Activities calendar, first view">
-					</a>
-					<a class="activity-lightbox-link" href="../images/activity_2.png" data-lightbox-image="../images/activity_2.png" data-lightbox-alt="Activities calendar, second view">
-						<img class="activity-image" src="../images/activity_2.png" alt="Activities calendar, second view">
-					</a>
-					<a class="activity-lightbox-link" href="../images/activity_3.png" data-lightbox-image="../images/activity_3.png" data-lightbox-alt="Activities calendar, third view">
-						<img class="activity-image" src="../images/activity_3.png" alt="Activities calendar, third view">
-					</a>
-					<a class="activity-lightbox-link" href="../images/activity_4.png" data-lightbox-image="../images/activity_4.png" data-lightbox-alt="Activities calendar, fourth view">
-						<img class="activity-image" src="../images/activity_4.png" alt="Activities calendar, fourth view">
-					</a>
-					<a class="activity-lightbox-link" href="../images/activity_5.png" data-lightbox-image="../images/activity_5.png" data-lightbox-alt="Activities calendar, fifth view">
-						<img class="activity-image" src="../images/activity_5.png" alt="Activities calendar, fifth view">
-					</a>
-				</div>
-			</div>
-		</section>
-	</main>
-
-	<div class="activity-lightbox" id="activity-lightbox" role="dialog" aria-modal="true" aria-label="Expanded activity image" hidden>
-		<button class="activity-lightbox-close" type="button" aria-label="Close expanded image">&times;</button>
-		<img class="activity-lightbox-image" src="" alt="">
-	</div>
-
+	<main><section class="activities-page"><div class="container">
+		<div class="activities-heading"><h1>Activities</h1><p>These are the activities we do during the month. Members can partake in any of these.</p></div>
+		<div class="calendar" aria-label="Activities calendar">
+			<div class="calendar-toolbar"><button class="calendar-nav" id="previous" type="button" aria-label="Previous month">&#8249;</button><h2 id="month"></h2><button class="calendar-nav" id="next" type="button" aria-label="Next month">&#8250;</button></div>
+			<div class="calendar-weekdays" aria-hidden="true"><span>Monday</span><span>Tuesday</span><span>Wednesday</span><span>Thursday</span><span>Friday</span><span>Saturday</span><span>Sunday</span></div>
+			<div class="calendar-grid" id="grid"><p class="calendar-message">Loading activities…</p></div>
+		</div>
+	</div></section></main>
+	<dialog class="event-dialog" id="event-dialog"><div class="event-dialog-content"><button class="event-dialog-close" type="button" aria-label="Close">&times;</button><h2 id="event-title"></h2><p id="event-date"></p><p id="event-time"></p><p id="event-category"></p></div></dialog>
 	<div id="site-footer"></div>
-
 	<script src="../js/components.js"></script>
 	<script>
-		const lightbox = document.getElementById('activity-lightbox');
-		const lightboxImage = lightbox.querySelector('.activity-lightbox-image');
-		const lightboxClose = lightbox.querySelector('.activity-lightbox-close');
-
-		function closeLightbox() {
-			lightbox.hidden = true;
-			document.body.style.overflow = '';
-		}
-
-		document.querySelectorAll('[data-lightbox-image]').forEach((link) => {
-			link.addEventListener('click', (event) => {
-				event.preventDefault();
-				lightboxImage.src = link.dataset.lightboxImage;
-				lightboxImage.alt = link.dataset.lightboxAlt;
-				lightbox.hidden = false;
-				document.body.style.overflow = 'hidden';
-				lightboxClose.focus();
-			});
-		});
-
-		lightboxClose.addEventListener('click', closeLightbox);
-		lightbox.addEventListener('click', (event) => {
-			if (event.target === lightbox) {
-				closeLightbox();
-			}
-		});
-		document.addEventListener('keydown', (event) => {
-			if (event.key === 'Escape' && !lightbox.hidden) {
-				closeLightbox();
-			}
-		});
+	(() => {
+		const grid=document.getElementById('grid'),monthLabel=document.getElementById('month'),dialog=document.getElementById('event-dialog'),today=new Date();let events=[],visible=new Date(today.getFullYear(),today.getMonth(),1);
+		const key=d=>[d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-');
+		const date=s=>{const [y,m,d]=s.split('-').map(Number);return new Date(y,m-1,d)};
+		const time=s=>s?new Intl.DateTimeFormat('en-GB',{hour:'2-digit',minute:'2-digit'}).format(new Date(`2000-01-01T${s}:00`)):'';
+		function details(e){document.getElementById('event-title').textContent=e.title;const a=date(e.startDate),b=date(e.endDate),df=new Intl.DateTimeFormat('en-GB',{dateStyle:'full'});document.getElementById('event-date').textContent=a.getTime()===b.getTime()?df.format(a):`${df.format(a)} – ${df.format(b)}`;document.getElementById('event-time').textContent=e.allDay?'All day':[time(e.startTime),time(e.endTime)].filter(Boolean).join('–');document.getElementById('event-category').textContent=e.category?`Category: ${e.category}`:'';dialog.showModal()}
+		function render(){monthLabel.textContent=new Intl.DateTimeFormat('en-GB',{month:'long',year:'numeric'}).format(visible);grid.replaceChildren();const offset=(visible.getDay()+6)%7,first=new Date(visible.getFullYear(),visible.getMonth(),1-offset);for(let i=0;i<42;i++){const d=new Date(first.getFullYear(),first.getMonth(),first.getDate()+i),cell=document.createElement('div'),number=document.createElement('span');cell.className='calendar-day';if(d.getMonth()!==visible.getMonth())cell.classList.add('is-outside');if(key(d)===key(today))cell.classList.add('is-today');number.className='calendar-date';number.textContent=d.getDate();cell.append(number);events.filter(e=>e.startDate<=key(d)&&e.endDate>=key(d)).forEach(e=>{const button=document.createElement('button');button.className='calendar-event';button.type='button';button.textContent=`${e.allDay||!e.startTime?'':time(e.startTime)+' '}${e.title}`;button.addEventListener('click',()=>details(e));cell.append(button)});grid.append(cell)}}
+		document.getElementById('previous').addEventListener('click',()=>{visible=new Date(visible.getFullYear(),visible.getMonth()-1,1);render()});document.getElementById('next').addEventListener('click',()=>{visible=new Date(visible.getFullYear(),visible.getMonth()+1,1);render()});dialog.querySelector('button').addEventListener('click',()=>dialog.close());
+		fetch('../data/events.json').then(r=>{if(!r.ok)throw Error();return r.json()}).then(data=>{events=data;const upcoming=events.find(e=>e.endDate>=key(today));if(upcoming){const d=date(upcoming.startDate);visible=new Date(d.getFullYear(),d.getMonth(),1)}render()}).catch(()=>{grid.innerHTML='<p class="calendar-message">The activities calendar could not be loaded.</p>'});
+	})();
 	</script>
 </body>
 </html>
